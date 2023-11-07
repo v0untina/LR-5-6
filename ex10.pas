@@ -1,18 +1,28 @@
 ﻿program ex10;
-const N=20;
-var a: array [1..N] of integer;
-var i,c: integer;
+ var
+  a:array[1..20] of integer;
+  i, f, b, c, j, k, full, min, max: integer;
 begin
-  c:=0;
-  for i:=1 to N do
+  for i:=1 to 20 do
     begin
-    a[i]:=random(100)-25;
-    end;
-    writeln ('исходные массивы:');
-    for i:=1 to N do 
-      write (a[i], ' ');
-    writeln ('');
-    for i:=1 to N do
-      if a[i]>0 then
-        write(a[i],' ')
+     b:= random(93)-22;
+     a[i]:=b;
+  end;
+  writeln(a);
+  full:=0;
+  max:=0;
+  for i:=20 downto 1 do 
+    begin 
+     if a[i]<0 then
+       begin
+       full+=1;
+       max:=20-full;
+       for c:=i to max do
+        begin 
+        a[c]:=a[c+1];
+        end;
+        end;
+        end; 
+        for i:=1 to max do
+   write(a[i],' ');
 end.
